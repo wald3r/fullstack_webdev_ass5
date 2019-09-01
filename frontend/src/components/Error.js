@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const Error = ({message}) => {
+const Error = ({ message }) => {
 
     const notificationStyle = {
         color: 'red',
@@ -20,7 +20,7 @@ const Error = ({message}) => {
     else{
         return (
             <div style={notificationStyle}>
-               {message} 
+                {message}
             </div>
         )
     }

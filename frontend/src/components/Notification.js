@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const Notification = ({message}) => {
+const Notification = ({ message }) => {
 
     const notificationStyle = {
         color: 'green',
@@ -20,7 +20,7 @@ const Notification = ({message}) => {
     else{
         return (
             <div style={notificationStyle}>
-               {message} 
+                {message}
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const ShortBlogInfo = ({blog}) => (
+const ShortBlogInfo = ({ blog }) => (
 
     <div>
         {blog.title} {blog.author}

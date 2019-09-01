@@ -1,9 +1,8 @@
 import React from 'react'
 
-const BlogInfo = ({blog, handleLikes, handleRemoval, user}) => { 
+const BlogInfo = ({ blog, handleLikes, handleRemoval, user }) => {
 
-    
-    const hideWhenNoAuthorization = { display: user.id === blog.user.id ? '' : 'none'}
+    const hideWhenNoAuthorization = { display: user.id === blog.user.id ? '' : 'none' }
 
     const blogStyle = {
         paddingTop: 10,
@@ -11,18 +10,19 @@ const BlogInfo = ({blog, handleLikes, handleRemoval, user}) => {
         border: 'solid',
         borderWidth: 1,
         marginBottom: 5
-      }
+    }
 
     return (
         <div style={blogStyle}>
             <p>{blog.title}</p>
             <p>{blog.author}</p>
-            <p>{blog.url}</p> 
+            <p>{blog.url}</p>
             <p>{blog.likes} <button onClick={handleLikes}>like</button></p>
             <div style={hideWhenNoAuthorization}>
                 <button onClick={handleRemoval}>remove</button>
             </div>
         </div>
-)}
+    )
+}
 
 export default BlogInfo
