@@ -28,6 +28,9 @@ const App = () => {
                 setUser(user)
                 blogService.setToken(user.token)
                 getBlogs()
+                setTitle('')
+                setAuthor('')
+                setUrl('')
             }
     }, [])
 
@@ -84,9 +87,7 @@ const App = () => {
                         title: title,
                         author: author,
                         url: url,
-                        user: user.id
         }
-        console.log(newBlog)
         const response = await blogService.create(newBlog)
         setBlogs(blogs.concat(response))
         setNotification(`a new blog ${title} by ${author} added`)
@@ -94,6 +95,8 @@ const App = () => {
         setAuthor('')
         setTitle('')
         setUrl('')
+        window.location.reload();
+
     }
 
     const handleLikes = async (blog) => {

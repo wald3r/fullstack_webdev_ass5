@@ -14,15 +14,15 @@ const BlogInfo = ({blog, handleLikes, handleRemoval, user}) => {
       }
 
     return (
-    <div style={blogStyle}>
-        <p>{blog.title}</p>
-        <p>{blog.author}</p>
-        <p>{blog.url}</p> 
-        <p>{blog.likes} <button onClick={handleLikes}>like</button></p>
-        <div style={hideWhenNoAuthorization}>
-            <button onClick={handleRemoval}>remove</button>
+        <div style={blogStyle}>
+            <p>{blog.title}</p>
+            <p>{blog.author}</p>
+            <p>{blog.url}</p> 
+            <p>{blog.likes} <button onClick={handleLikes}>like</button></p>
+            <div style={hideWhenNoAuthorization}>
+                <button onClick={handleRemoval}>remove</button>
+            </div>
         </div>
-    </div>
 )}
 
 export default BlogInfo

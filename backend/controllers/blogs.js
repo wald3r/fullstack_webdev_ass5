@@ -27,7 +27,7 @@ blogsRouter.delete('/:id', async (request, response, next) => {
       return response.status(401).json({ error: 'only the creator is allowed to delete this blog' })
     }
     const user = await User.findById(blog.user.toString())
-    const bloglist = user.blogs.filter(oldBlogs => oldBlogs.id !== blog.id)
+    const bloglist = user.blogs.filter(id => id.toString() !== blog.id.toString())
     user.blogs = bloglist
     await user.save()
     await Blog.findByIdAndRemove(request.params.id)
