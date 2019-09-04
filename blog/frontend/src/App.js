@@ -7,11 +7,11 @@ import Error from './components/Error'
 import LoginForm from './components/LoginForm'
 import AddBlogForm from './components/AddBlogForm'
 import Togglable from './components/Togglable'
-import { useField } from './hooks'
+import { useUsername, usePassword } from './hooks'
 
 const App = () => {
-    const username = useField('username')
-    const password = useField('password')
+    const {resetusername, ...username } = useUsername('username')
+    const {resetpasswd, ...password } = usePassword('password')
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
     const [title, setTitle] = useState('')
@@ -65,14 +65,14 @@ const App = () => {
             setUser(newUser)
 
             blogService.setToken(newUser.token)
-            username.reset()
-            password.reset()
+            resetusername()
+            resetpasswd()
 
         }catch(exception){
             setError('Login failed!')
             setTimeout(() => { setError('')}, 5000)
-            username.reset()
-            password.reset()
+            resetusername()
+            resetpasswd()
         }
 
     }

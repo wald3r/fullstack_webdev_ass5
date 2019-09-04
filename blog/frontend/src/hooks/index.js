@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 
 
-export const useField = (type) => {
+export const usePassword = (type) => {
 
     const [value, setValue] = useState('')
 
@@ -10,7 +10,7 @@ export const useField = (type) => {
         setValue(event.target.value)
     }
 
-    const reset = () => {
+    const resetpasswd = () => {
         setValue('')
     }
 
@@ -18,9 +18,31 @@ export const useField = (type) => {
         type,
         value,
         onChange,
-        reset
+        resetpasswd
     }
 
 
 }
 
+
+export const useUsername = (type) => {
+
+    const [value, setValue] = useState('')
+
+    const onChange = (event) => {
+        setValue(event.target.value)
+    }
+
+    const resetusername = () => {
+        setValue('')
+    }
+
+    return {
+        type,
+        value,
+        onChange,
+        resetusername
+    }
+
+
+}
