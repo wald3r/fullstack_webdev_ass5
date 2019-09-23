@@ -100,7 +100,7 @@ const App = () => {
 
     const handleLikes = async (blog) => {
         blog.likes += 1
-        const response = await blogService.update(blog)
+        await blogService.update(blog)
         const someBlogs = blogs.filter(otherBlogs => otherBlogs.id !== blog.id)
         const allBlogs = someBlogs.concat(blog)
         const sortedBlogs = allBlogs.sort((a,b) =>  b.likes-a.likes )

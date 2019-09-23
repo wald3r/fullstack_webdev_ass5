@@ -7,14 +7,17 @@ describe('<App />', () => {
 
     test('renders no blogs, when logged out', async () => {
 
+        localStorage.removeItem('loggedBlogappUser')
+
         const component = render(
             <App />
         )
         component.rerender(<App />)
-        await waitForElement(() => component.container.querySelector('.shortBlogInfo'))
-
-        const blogs = component.container.querySelectorAll('.shortBlogInfo')
-        expect(blogs.length).toBe(0)
+        expect(component.container).not.toHaveTextContent('title1')
+        expect(component.container).not.toHaveTextContent('title2')
+        expect(component.container).not.toHaveTextContent('title3')
+        expect(component.container).toHaveTextContent('username')
+        expect(component.container).toHaveTextContent('password')
 
     })
 
