@@ -10,8 +10,8 @@ import Togglable from './components/Togglable'
 import { useUsername, usePassword } from './hooks'
 
 const App = () => {
-    const {resetusername, ...username } = useUsername('username')
-    const {resetpasswd, ...password } = usePassword('password')
+    const { resetusername, ...username } = useUsername('username')
+    const { resetpasswd, ...password } = usePassword('password')
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
     const [title, setTitle] = useState('')
@@ -36,6 +36,7 @@ const App = () => {
 
     const getBlogs = async () => {
         const allBlogs = await blogService.getAll()
+        console.log(allBlogs)
         setBlogs(allBlogs.sort((a,b) =>  b.likes-a.likes ))
     }
 
@@ -101,7 +102,7 @@ const App = () => {
         blog.likes += 1
         const response = await blogService.update(blog)
         const someBlogs = blogs.filter(otherBlogs => otherBlogs.id !== blog.id)
-        const allBlogs = someBlogs.concat(response)
+        const allBlogs = someBlogs.concat(blog)
         const sortedBlogs = allBlogs.sort((a,b) =>  b.likes-a.likes )
         setBlogs(sortedBlogs)
         setNotification(`you liked blog ${blog.title} from author ${blog.author}`)
